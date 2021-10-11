@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
             string debugText =
                 "Ball mass = " + ballMass + "\n" +
                 "Ball velocity = " + ballVelocity + "\n" +
-                "Ball speed = " + ballSpeed + "\n" +
+                "Ball speed = " + Mathf.Round(ballSpeed) + "\n" +
                 "Ball momentum = " + ballMomentum + "\n" +
                 "Ball friction = " + ballFriction + "\n" +
                 "Last impulse from player 1 = (" + impulsePlayer1X + ", " + impulsePlayer1Y + ")\n" +

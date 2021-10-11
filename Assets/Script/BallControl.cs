@@ -7,6 +7,9 @@ public class BallControl : MonoBehaviour
     private Rigidbody2D rigidBody2D;
     public float xInitialForce;
     public float yInitialForce;
+    public float randomX;
+    public float randomY;
+    public float speed;
 
     // Titik asal lintasan bola saat ini
     private Vector2 trajectoryOrigin;
@@ -36,23 +39,28 @@ public class BallControl : MonoBehaviour
 
     void PushBall()
     {
-        // Tentukan nilai komponen y dari gaya dorong antara -yInitialForce dan yInitialForce
-        float yRandomInitialForce = Random.Range(-yInitialForce, yInitialForce);
+        //// Tentukan nilai komponen y dari gaya dorong antara -yInitialForce dan yInitialForce
+        //float yRandomInitialForce = Random.Range(-yInitialForce, yInitialForce);
 
-        // Tentukan nilai acak antara 0 (inklusif) dan 2 (eksklusif)
-        float randomDirection = Random.Range(0, 2);
+        //// Tentukan nilai acak antara 0 (inklusif) dan 2 (eksklusif)
+        //float randomDirection = Random.Range(0, 2);
 
-        // Jika nilainya di bawah 1, bola bergerak ke kiri. 
-        // Jika tidak, bola bergerak ke kanan.
-        if (randomDirection < 1.0f)
-        {
-            // Gunakan gaya untuk menggerakkan bola ini.
-            rigidBody2D.AddForce(new Vector2(-xInitialForce, yRandomInitialForce));
-        }
-        else
-        {
-            rigidBody2D.AddForce(new Vector2(xInitialForce, yRandomInitialForce));
-        }
+        //// Jika nilainya di bawah 1, bola bergerak ke kiri. 
+        //// Jika tidak, bola bergerak ke kanan.
+        //if (randomDirection < 1.0f)
+        //{
+        //    // Gunakan gaya untuk menggerakkan bola ini.
+        //    rigidBody2D.AddForce(new Vector2(-xInitialForce, yRandomInitialForce));
+        //}
+        //else
+        //{
+        //    rigidBody2D.AddForce(new Vector2(xInitialForce, yRandomInitialForce));
+        //}
+
+        randomX = Random.Range(-xInitialForce, xInitialForce);
+        randomY = Random.Range(-yInitialForce, yInitialForce);
+        rigidBody2D.AddForce(new Vector2(randomX, randomY).normalized * speed);
+
     }
 
     void RestartGame()
