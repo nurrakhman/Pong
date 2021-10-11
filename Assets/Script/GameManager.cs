@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     // Apakah debug window ditampilkan?
     private bool isDebugWindowShown = false;
 
+    // Objek untuk menggambar prediksi lintasan bola
+    public Trajectory trajectory;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +43,7 @@ public class GameManager : MonoBehaviour
 
     void OnGUI()
     {
+       
         // Tampilkan skor pemain 1 di kiri atas dan pemain 2 di kanan atas
         GUI.Label(new Rect(Screen.width / 2 - 150 - 12, 20, 100, 100), "" + player1.Score);
         GUI.Label(new Rect(Screen.width / 2 + 150 + 12, 20, 100, 100), "" + player2.Score);
@@ -114,6 +118,7 @@ public class GameManager : MonoBehaviour
         if (GUI.Button(new Rect(Screen.width / 2 - 60, Screen.height - 73, 120, 53), "TOGGLE\nDEBUG INFO"))
         {
             isDebugWindowShown = !isDebugWindowShown;
+            trajectory.enabled = !trajectory.enabled;
         }
 
     }
