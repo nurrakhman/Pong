@@ -80,24 +80,25 @@ public class Trajectory : MonoBehaviour
                         drawBallAtCollision = true;
                     }
                 }
+                // Jika true, ...
+                if (drawBallAtCollision)
+                {
+                    // Gambar bola "bayangan" di prediksi titik tumbukan
+                    ballAtCollision.transform.position = offsetHitPoint;
+                    ballAtCollision.SetActive(true);
+                }
+                else
+                {
+                    // Sembunyikan bola "bayangan"
+                    ballAtCollision.SetActive(false);
+                }
 
                 // Hanya gambar lintasan untuk satu titik tumbukan, jadi keluar dari loop
                 break;
 
             }
 
-            // Jika true, ...
-            if (drawBallAtCollision)
-            {
-                // Gambar bola "bayangan" di prediksi titik tumbukan
-                ballAtCollision.transform.position = offsetHitPoint;
-                ballAtCollision.SetActive(true);
-            }
-            else
-            {
-                // Sembunyikan bola "bayangan"
-                ballAtCollision.SetActive(false);
-            }
+            
 
 
         }
