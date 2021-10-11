@@ -469,6 +469,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xInitialForce: 50
   yInitialForce: 50
+  randomX: 0
+  randomY: 0
+  speed: 50
 --- !u!1 &516266329
 GameObject:
   m_ObjectHideFlags: 0
